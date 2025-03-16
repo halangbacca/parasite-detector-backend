@@ -18,10 +18,10 @@ app.add_middleware(
 )
 
 # Carregar o modelo YOLOv11
-model = YOLO("/home/halan/Área de trabalho/jupyter_notebook/runs/detect/train10/weights/best.pt")
+model = YOLO("./best.pt")
 
 # Definir tamanho padrão da imagem para o YOLO
-IMG_SIZE = (1024, 1024)
+IMG_SIZE = (1024, 768)
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...), threshold: float = Query(0.5, description="Confiança mínima para detecção")):
