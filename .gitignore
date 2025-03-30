@@ -1,0 +1,16 @@
+# Virtual environment
+detector/
+
+# Weights
+weights/
+
+# Files
+output_images/
+output_videos/
+output_reports/
+
+# IDE
+.idea
+
+# Cache
+/__pycache/*
