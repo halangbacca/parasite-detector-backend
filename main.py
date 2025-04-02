@@ -127,7 +127,7 @@ def processar_video_em_thread(video_path, out_path, yolo_model, threshold, detec
 async def predict(
         file: UploadFile = File(...),
         threshold: float = Query(0.5),
-        model: str = Query("yolov11n")
+        model: str = Query("YOLO11n")
 ):
     try:
         model_path = os.path.join(WEIGHTS_DIR, f"{model}.pt")
@@ -204,7 +204,7 @@ async def predict(
             output_image_path = os.path.join(OUTPUT_IMAGE_DIR, f"{filename_base}_{timestamp}_out.jpg")
             cv2.imwrite(output_image_path, img_resized)
 
-            await fila_progresso.put(100)  # envia 100% para imagens
+            await fila_progresso.put(100)
 
             csv_path = salvar_relatorio_csv(detections_count,
                                             os.path.join(OUTPUT_REPORT_DIR, filename_base + "_" + timestamp))
